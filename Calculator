@@ -1,0 +1,29 @@
+package lesson_6.polymorphism3;
+
+import java.util.List;
+
+public class Calculator {
+
+    private Calculator() {}
+
+    public static int calculate(List<MediaItem> mediaItems) {
+        // Напишите реализацию метода, который будет возвращать общее количество дней,
+        // потраченных на просмотр фильмов и сериалов
+        int count=0;
+        for(MediaItem mediaItem: mediaItems){
+            boolean movieRes =  mediaItem instanceof Movie;
+            if(movieRes==true){
+                MediaItem movie = (Movie)mediaItem;
+                count+= movie.getRuntime();
+
+            }else if(mediaItem instanceof Series){
+                Series series = (Series)mediaItem;
+                count+= series.getRuntime() * series.getSeriesCount();
+            }else{
+                System.out.println("Неизвестный тип документа");
+            }
+        }
+        return (count/60)/24;
+    }
+
+}
