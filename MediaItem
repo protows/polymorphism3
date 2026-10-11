@@ -1,0 +1,9 @@
+package lesson_6.polymorphism3;
+public interface MediaItem {
+
+    // Длительность фильма или сериала в минутах
+    int getRuntime();
+
+    String getTitle();
+
+}
